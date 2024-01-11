@@ -88,3 +88,8 @@
     padding: 10px;
     border: 1px solid black;
 }
+
+.github-image {
+    width: 80px;
+    height: 80px;
+}
