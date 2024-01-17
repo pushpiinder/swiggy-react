@@ -1,4 +1,11 @@
-.header {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+/* .header {
     display: flex;
     justify-content: space-between;
     border: 1px solid black
@@ -30,13 +37,13 @@
 
 .res-container > a {
     text-decoration: none;
-    color: inherit; /* Use the same color as the surrounding text */
+    color: inherit;
     cursor: text;
 }
 
 .nav-items > ul > li > a {
     text-decoration: none;
-    color: inherit; /* Use the same color as the surrounding text */
+    color: inherit;
 }
 
 .res-card {
@@ -92,4 +99,4 @@
 .github-image {
     width: 80px;
     height: 80px;
-}
+} */
