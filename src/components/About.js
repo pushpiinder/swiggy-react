@@ -1,6 +1,7 @@
 import User from "./User";
 import UserClass from "./UserClass";
 import { Component } from "react";
+import UserContext from "../utils/UserContext";
 
 // const About = () => {
 
@@ -37,6 +38,16 @@ class About extends Component {
         return (
             <div>
             <h1>About Class Component</h1>
+            <br></br>
+            <div>
+                LoggedIn User :
+                <UserContext.Consumer>
+                    {({ loggedInUser }) => (
+                        <span className="text-xl font-bold"> {loggedInUser}</span>
+                    )}
+                </UserContext.Consumer>
+            </div>
+            <br></br>
             <h2>This is Namaste About page</h2>
             {/* Belocode will make 2 instances of a same class */}
             <UserClass name={"Pushpinder (class based)"} location={"Delhi class"} contact={"@pushpiinder class"} />
