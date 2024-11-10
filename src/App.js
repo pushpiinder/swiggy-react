@@ -13,7 +13,6 @@ import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 import Cart from "./components/Cart";
 
-
 // Chunking
 // Code Splitting
 // Dynamic Bundling
@@ -26,28 +25,28 @@ const Grocery = lazy(() => import("./components/Grocery"));
 const About = lazy(() => import("./components/About"));
 
 const AppLayout = () => {
-    const [userName, setUserName] = useState();
+  const [userName, setUserName] = useState();
 
-    //authentication
-    useEffect(() => {
+  //authentication
+  useEffect(() => {
     // Make an API call and send username and password
     const data = {
-      name: "Akshay Saini",
+      name: "Pushpinder Singh",
     };
     setUserName(data.name);
-    }, []);
+  }, []);
 
-    return (
-      <Provider store={appStore}>
-        <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
-          <div className="app">
-            <Header/>
-            <Outlet/>
-          </div>
-        </UserContext.Provider>
-      </Provider>
-    )
-}
+  return (
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        <div className="app">
+          <Header />
+          <Outlet />
+        </div>
+      </UserContext.Provider>
+    </Provider>
+  );
+};
 
 const appRouter = createBrowserRouter([
   {
@@ -56,7 +55,7 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Body />
+        element: <Body />,
       },
       {
         path: "/about",
@@ -64,11 +63,11 @@ const appRouter = createBrowserRouter([
           <Suspense fallback={<h1>Loading....</h1>}>
             <About />
           </Suspense>
-        )
+        ),
       },
       {
         path: "/contact",
-        element: <Contact />
+        element: <Contact />,
       },
       {
         path: "/grocery",
@@ -76,22 +75,21 @@ const appRouter = createBrowserRouter([
           <Suspense fallback={<h1>Loading....</h1>}>
             <Grocery />
           </Suspense>
-        )
+        ),
       },
       {
         path: "/restaurants/:resId",
-        element: <RestaurantMenu />
+        element: <RestaurantMenu />,
       },
       {
         path: "/cart",
         element: <Cart />,
-      }
+      },
     ],
-    errorElement: <Error />
+    errorElement: <Error />,
   },
-  
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(<RouterProvider router={appRouter}/>);
+root.render(<RouterProvider router={appRouter} />);

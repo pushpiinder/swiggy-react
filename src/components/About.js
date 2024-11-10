@@ -16,45 +16,52 @@ import UserContext from "../utils/UserContext";
 // }
 
 class About extends Component {
+  constructor(props) {
+    super(props);
 
-    constructor(props) {
-        super(props);
+    this.state = {
+      count: 0,
+      count2: 2,
+    };
 
-        this.state = {
-            count: 0,
-            count2: 2,
-        }
+    console.log("Parent Constructor");
+  }
 
-        console.log("Parent Constructor");
-    }
+  componentDidMount() {
+    console.log("Parent componentDidMount() is called ");
+  }
 
-    componentDidMount() {
-        console.log("Parent componentDidMount() is called ");
-    }
+  render() {
+    console.log("Parent Render");
 
-    render() {
-        console.log("Parent Render");
-
-        return (
-            <div>
-            <h1>About Class Component</h1>
-            <br></br>
-            <div>
-                LoggedIn User :
-                <UserContext.Consumer>
-                    {({ loggedInUser }) => (
-                        <span className="text-xl font-bold"> {loggedInUser}</span>
-                    )}
-                </UserContext.Consumer>
-            </div>
-            <br></br>
-            <h2>This is Namaste About page</h2>
-            {/* Belocode will make 2 instances of a same class */}
-            <UserClass name={"Pushpinder (class based)"} location={"Delhi class"} contact={"@pushpiinder class"} />
-            <UserClass name={"Elon (class based)"} location={"US class"} contact={"@elonmusk class"} />
+    return (
+      <div>
+        <h1>About Class Component</h1>
+        <br></br>
+        <div>
+          LoggedIn User :
+          <UserContext.Consumer>
+            {({ loggedInUser }) => (
+              <span className="text-xl font-bold"> {loggedInUser}</span>
+            )}
+          </UserContext.Consumer>
         </div>
-        )
-    }
+        <br></br>
+        <h2>This is About page</h2>
+        {/* Belocode will make 2 instances of a same class */}
+        <UserClass
+          name={"Pushpinder (class based)"}
+          location={"Delhi class"}
+          contact={"@pushpiinder class"}
+        />
+        <UserClass
+          name={"Elon (class based)"}
+          location={"US class"}
+          contact={"@elonmusk class"}
+        />
+      </div>
+    );
+  }
 }
 
 export default About;
